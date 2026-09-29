@@ -9,8 +9,9 @@ Compte rendu TP1
 # Partie Projet : 
 L'objectif est de concevoir un écran magique ( télécran ) en HDMI. 
 
-Cahier des charges : 
-  -Contrôleur HDMI : intégrer celui du TD et afficher les compteurs x/y en couleur.
-  -Pixel mobile : un pixel blanc déplacé par les deux encodeurs.
-  -Mémorisation : conserver le tracé avec un framebuffer en RAM dual-port.
-  -Effacement : remettre la RAM à zéro par appui sur un bouton.
+Cahier des charges 
+
+-Contrôleur HDMI , intégrer celui du TD et afficher les compteurs x/y en couleur.
+-Pixel mobile , un pixel blanc déplacé par les deux encodeurs.
+-Mémorisation , conserver le tracé avec un framebuffer en RAM dual-port.
+-Effacement , remettre la RAM à zéro par appui sur un bouton.
