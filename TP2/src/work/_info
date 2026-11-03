@@ -1,0 +1,94 @@
+m255
+K4
+z2
+!s11e vcom 2020.1 2020.02, Feb 28 2020
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dC:/Users/33658/Documents/GitHub/TP_FPGA/TP1_quartus/TP2/src
+Eencoder
+Z1 w1792398225
+Z2 DPx4 ieee 11 numeric_std 0 22 aU^R8eGcicLcUFIaBQSL>3
+Z3 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
+Z4 DPx4 ieee 14 std_logic_1164 0 22 cVAk:aDinOX8^VGI1ekP<3
+!i122 0
+R0
+Z5 8encoder.vhd
+Z6 Fencoder.vhd
+l0
+L10 1
+VU4NKD<B:A:a^=QR^LDGW60
+!s100 =@F9X0b8j=H=ic]@b[U=b3
+Z7 OV;C;2020.1;71
+32
+Z8 !s110 1793700539
+!i10b 1
+Z9 !s108 1793700539.000000
+Z10 !s90 -reportprogress|300|encoder.vhd|
+Z11 !s107 encoder.vhd|
+!i113 1
+Z12 tExplicit 1 CvgOpt 0
+Artl
+R2
+R3
+R4
+Z13 DEx4 work 7 encoder 0 22 U4NKD<B:A:a^=QR^LDGW60
+!i122 0
+l64
+L43 161
+V065NM3ZN_J=ABm^kYI7>@3
+!s100 @3<n04z@S:Tl3Ei:LE3mm2
+R7
+32
+R8
+!i10b 1
+R9
+R10
+R11
+!i113 1
+R12
+Eencoder_tb
+Z14 w1792398222
+R2
+R3
+R4
+!i122 1
+R0
+Z15 8encoder_tb.vhd
+Z16 Fencoder_tb.vhd
+l0
+L5 1
+V`Rz`>X[;MEA2@VRakdU@b3
+!s100 8dJJ[Vb3lObjWUT3RZmEO3
+R7
+32
+R8
+!i10b 1
+R9
+Z17 !s90 -reportprogress|300|encoder_tb.vhd|
+!s107 encoder_tb.vhd|
+!i113 1
+R12
+Atb
+R13
+R2
+R3
+R4
+DEx4 work 10 encoder_tb 0 22 `Rz`>X[;MEA2@VRakdU@b3
+!i122 1
+l34
+L8 108
+VT1__oHfhk1PWAWoa06kNV3
+!s100 0foRdD2foZ2L2i;;50T5C0
+R7
+32
+R8
+!i10b 1
+R9
+R17
+Z18 !s107 encoder_tb.vhd|
+!i113 1
+R12

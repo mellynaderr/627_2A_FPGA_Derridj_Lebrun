@@ -6,7 +6,7 @@ entity hdmi_controler_tb is
 end entity hdmi_controler_tb;
 
 architecture tb of hdmi_controler_tb is
-    -- Generic parameters
+    -- Parametre generique 
     constant h_res 	: positive := 720;
     constant v_res 	: positive := 480;
 
@@ -18,7 +18,7 @@ architecture tb of hdmi_controler_tb is
     constant v_fp	: positive := 30;
     constant v_bp	: positive := 9;
 
-    -- Simulation constants
+    -- Constantes de simulation 
     constant h_total : positive := h_res + h_sync + h_fp + h_bp;
     constant v_total : positive := v_res + v_sync + v_fp + v_bp;
 
@@ -78,12 +78,26 @@ begin
 
     p_stimuli : process
     begin
+      
+        -- 2 lignes (2 * h_total cycles)
+  
         tb_i_rst_n <= '0';
         wait until rising_edge(tb_i_clk);
         tb_i_rst_n <= '1';
         wait until rising_edge(tb_i_clk);
 
-        for i in 0 to 2 * h_total*v_total loop
+        for i in 1 to 2 * (h_total + 1) loop
+            wait until rising_edge(tb_i_clk);
+        end loop;
+   
+        --2 trames completes (2 * h_total * v_total cycles)
+    
+        tb_i_rst_n <= '0';
+        wait until rising_edge(tb_i_clk);
+        tb_i_rst_n <= '1';
+        wait until rising_edge(tb_i_clk);
+        
+        for i in 1 to 2 * (h_total + 1) * (v_total + 1) loop
             wait until rising_edge(tb_i_clk);
         end loop;
 
