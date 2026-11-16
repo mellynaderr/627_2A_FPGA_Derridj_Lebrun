@@ -179,7 +179,7 @@ Mettre en œuvre le contrôleur HDMI conçu en TD : un composant `hdmi_controler
 
 
 **controleur HDMI**  
-Pour la partie controleur HDMI, on réutilise les codes issues du TD3. 
+Pour la partie controleur HDMI, on réutilise les codes issues du TD3 pour simuler un hdmi_controler. 
 
 Gestion des couleurs d'un pixel : 
 
@@ -196,11 +196,34 @@ Le rouge est de plus en plus fort vers la droite parce que x augmente quand on v
 
 
 **Deplacement d'un pixel**  
+On effectue le déplacement du pixel via le fichier contenue dans T3/src/telecran.vhd. 
+Mode de fonctionnement : 
+Dans l'épisode précédent on avait définit le fonctionnement des encodeurs. On utilise deux encodeurs A et B : L'encodeur gauche déplace le pixel à l'horizontal, l'encodeur gauche déplace le pixel à la vertical. On attribue la valeur blanche (x"FFFFFF") au signal o_hdmi_tx_d quand les valeurs x et y des encodeurs sont égales à celles des compteurs du contrôleur HDMI. Dans le cas contraire on affiche la valeur noire (x"000000").
 
+
+
+
+**CONCLUSION**:
+- Affichage d'un pixel sur l'écran. Obkectif du prochain TP : garder en mémoire les positions précédentes.
+- Mise en place des deux encodeurs afin de déterminer les positions horizontales et verticales. 
+
+
+## TP4 – SuiteContrôleur HDMI
+
+**MEMORISATION**:
 La DRAM Dual Ported Random Access Memory signifiant "mémoire vive à double accès" est un type de mémoire vive à port double en lecture. Elle permet donc d’accéder à deux cases mémoire en même temps, au même cycle d’horloge.
+Interet de la DRAM : on peut à la fois lire et écrire en meme temps. On écrit en mémoire à l'adresse meme_size*y+x la donnée ( 1 pour un pixel allumé) puis on lit en meme temps la mémoire afin d'afficher en continue les bits allumés sur l'écran. 
+Fonctionnement de la DPRAM : Les encodeurs fournissent une position x et y. On note i_adrr= Ly+x (l'adresse en mémoire d'un pixel , où L représente la taille de la mémoire mem_size). Sur chaque front montant d'horloge , si we_a =1 également alors on écrit la donnée 1 à l'adresse Ly+x.En parallèle : 
+Le contrôleur HDMI balaie de droit à gauche et de haut en bas.
+Il fournit l’adresse du pixel courant (o_pixel_address), calculée comme y × L + x, et o_pixel_en indique quand ce pixel fait partie de la zone visible. Le port B  de la DRAM lit la mémoire à cette adresse et renvoie 1 ou 0.
+On convertit ce bit en couleur : x"FFFFFF" si le bit vaut 1, x"000000" sinon, et on l’envoie sur o_hdmi_tx_d.
+Le fonctionnement global est résumé dans le fichier TP4/sch/schem_global.png. Le code est également rpésent dans le fichier TP4/src
 
-**CONCLUSION**
-Les 3 TP nous ont permis de réaliser un écran magique à travers la conception d'un controler HDMI  utilisant les encoders. La dernière parti porte sur la gestion de la mémoire DRAM. 
+**MEMORISATION**:
+Problème : on ne peut pas écrire et lire en meme temps (pour l'effacement). 
+Pour résoudre le soucis : on met une variable s_erase_active . Lorsque s_erase_active=1 on stoppe l'écriture. L'écriture est remplacé par de l'effacement pixel par pixel. Lorsque s_erase_active=0 on reprend l'écriture pour redessiner des pixels. 
 
-
-## TP3 – SuiteContrôleur HDMI
+**CONCLUSION**:
+- Encoder fonctionnels qui permettent le déplacement du pixel. 
+- Déplacement du pixel et mémorisation du chemin. 
+- Effacement des pixels possible.
