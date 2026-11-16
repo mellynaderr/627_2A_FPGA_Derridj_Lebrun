@@ -219,7 +219,7 @@ Il fournit l’adresse du pixel courant (o_pixel_address), calculée comme y × 
 On convertit ce bit en couleur : x"FFFFFF" si le bit vaut 1, x"000000" sinon, et on l’envoie sur o_hdmi_tx_d.
 Le fonctionnement global est résumé dans le fichier TP4/sch/schem_global.png. Le code est également rpésent dans le fichier TP4/src
 
-**MEMORISATION**:
+**EFFACEMENT**:
 Problème : on ne peut pas écrire et lire en meme temps (pour l'effacement). 
 Pour résoudre le soucis : on met une variable s_erase_active . Lorsque s_erase_active=1 on stoppe l'écriture. L'écriture est remplacé par de l'effacement pixel par pixel. Lorsque s_erase_active=0 on reprend l'écriture pour redessiner des pixels. 
 
